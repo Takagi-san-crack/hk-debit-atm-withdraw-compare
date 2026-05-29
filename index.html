@@ -11,32 +11,29 @@
 /* ── Tokens ── */
 :root { --r:16px; --rm:12px; --rs:8px; --gap:14px; --tr:.2s ease; }
 
-/* ── Light (全新暖橙风格，保证高对比度易读性) ── */
 [data-theme="light"], :root {
-  --bg: #FFF7ED;                             /* 背景风格 */
-  --sticky-bg: #FFF7ED;                      /* 表格固定列同步背景 */
-  --acc: #F97316;                            /* 主色 */
-  --acc2: #FBBF24;                           /* 点缀色 */
-  --text: #431407;                           /* 深焦糖色文字 */
-  --t2: #9A3412;                             /* 次要文字（铁锈红） */
-  --t3: #FFEDD5;                             /* 淡色边框线 */
+  --bg: #FFF7ED;
+  --sticky-bg: #FFF7ED;
+  --acc: #F97316;
+  --acc2: #FBBF24;
+  --text: #431407;
+  --t2: #9A3412;
+  --t3: #FFEDD5;
   --card: #ffffff;
-  --card-bd: rgba(249, 115, 22, 0.15);       /* 主色调淡的卡片边框 */
-  --card-hi: rgba(249, 115, 22, 0.08);       /* 悬停高亮 */
+  --card-bd: rgba(249, 115, 22, 0.15);
+  --card-hi: rgba(249, 115, 22, 0.08);
   --card-sh: 0 1px 3px rgba(249,115,22,0.05), 0 6px 28px rgba(249,115,22,0.08);
   --glow: rgba(249, 115, 22, 0.2);
   --sel: rgba(249, 115, 22, 0.08);
   
-  /* 状态颜色包（适配暖色底色） */
   --sf-bg: linear-gradient(135deg,#f0fdf4,#dcfce7); --sf-bd: rgba(22,163,74,0.25); --sf-c: #166534; --sf-d: rgba(22,163,74,0.06);
   --sx-bg: linear-gradient(135deg,#fef2f2,#fee2e2); --sx-bd: rgba(220,38,38,0.2);  --sx-c: #991b1b; --sx-d: rgba(220,38,38,0.06);
   --st-bg: linear-gradient(135deg,#fffbeb,#fef3c7); --st-bd: rgba(217,119,6,0.25);  --st-c: #b45309; --st-d: rgba(217,119,6,0.06);
   --sl-bg: linear-gradient(135deg,#eff6ff,#dbeafe); --sl-bd: rgba(37,99,235,0.2);  --sl-c: #1e40af; --sl-d: rgba(37,99,235,0.06);
-  /* 新增紫色状态：限指定币种免费 */
   --sp-bg: linear-gradient(135deg,#faf5ff,#f3e8ff); --sp-bd: rgba(147,51,234,0.25); --sp-c: #6b21a8; --sp-d: rgba(147,51,234,0.06);
 }
 
-/* ── Dark (对应的暗色焦糖质感，可选保留) ── */
+/* ── Dark ── */
 [data-theme="dark"] {
   --bg: #1c0d02;                             
   --sticky-bg: #1c0d02;
@@ -56,7 +53,6 @@
   --sx-bg: linear-gradient(135deg,rgba(153,27,27,0.25),rgba(153,27,27,0.08)); --sx-bd: rgba(252,165,165,0.2); --sx-c: #fc8181; --sx-d: rgba(252,165,165,0.08);
   --st-bg: linear-gradient(135deg,rgba(146,64,14,0.25),rgba(146,64,14,0.08));  --st-bd: rgba(252,211,77,0.2); --st-c: #fcd34d; --st-d: rgba(252,211,77,0.08);
   --sl-bg: linear-gradient(135deg,rgba(30,64,175,0.25),rgba(30,64,175,0.08));  --sl-bd: rgba(147,197,253,0.2); --sl-c: #93c5fd; --sl-d: rgba(147,197,253,0.08);
-  /* 新增紫色状态暗色调 */
   --sp-bg: linear-gradient(135deg,rgba(107,33,168,0.25),rgba(107,33,168,0.08)); --sp-bd: rgba(216,180,254,0.2); --sp-c: #c084fc; --sp-d: rgba(216,180,254,0.08);
 }
 
@@ -205,8 +201,7 @@ h1 span{background:linear-gradient(130deg,var(--acc),var(--acc2)); -webkit-backg
 .atm-cell[data-s="fee"]      {background:var(--sx-bg); border-color:var(--sx-bd)}
 .atm-cell[data-s="ftf"]      {background:var(--st-bg); border-color:var(--st-bd)}
 .atm-cell[data-s="limited"]  {background:var(--sl-bg); border-color:var(--sl-bd)}
-.atm-cell[data-s="currency"] {background:var(--sp-bg); border-color:var(--sp-bd)} /* 紫色卡片支撑 */
-
+.atm-cell[data-s="currency"] {background:var(--sp-bg); border-color:var(--sp-bd)}
 .cell-top{display:flex; align-items:flex-start; justify-content:space-between}
 .cell-emoji{font-size:1.5rem}
 .cell-emoji.is-svg{
@@ -224,7 +219,7 @@ h1 span{background:linear-gradient(130deg,var(--acc),var(--acc2)); -webkit-backg
 .atm-cell[data-s="fee"]      .cell-si,.atm-cell[data-s="fee"]      .cell-st{color:var(--sx-c)}
 .atm-cell[data-s="ftf"]      .cell-si,.atm-cell[data-s="ftf"]      .cell-st{color:var(--st-c)}
 .atm-cell[data-s="limited"]  .cell-si,.atm-cell[data-s="limited"]  .cell-st{color:var(--sl-c)}
-.atm-cell[data-s="currency"] .cell-si,.atm-cell[data-s="currency"] .cell-st{color:var(--sp-c)} /* 紫色文字支撑 */
+.atm-cell[data-s="currency"] .cell-si,.atm-cell[data-s="currency"] .cell-st{color:var(--sp-c)}
 
 .result-note{font-size:.84rem; color:var(--t2); margin-top:14px; padding-top:14px; border-top:1px solid var(--card-bd)}
 .res-bar{display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:16px}
@@ -271,15 +266,14 @@ h1 span{background:linear-gradient(130deg,var(--acc),var(--acc2)); -webkit-backg
 .bdg.fee      {background:var(--sx-d); color:var(--sx-c); border-color:var(--sx-bd)}
 .bdg.ftf      {background:var(--st-d); color:var(--st-c); border-color:var(--st-bd)}
 .bdg.limited  {background:var(--sl-d); color:var(--sl-c); border-color:var(--sl-bd)}
-.bdg.currency {background:var(--sp-d); color:var(--sp-c); border-color:var(--sp-bd)} /* 紫色徽章样式 */
+.bdg.currency {background:var(--sp-d); color:var(--sp-c); border-color:var(--sp-bd)}
 
 /* ════════════════
-   TABLE (完美修复穿透、错位与上浮的黏性机制)
+   TABLE
 ════════════════ */
 .tbl-outer { overflow-x: auto; isolation: isolate; }
 .tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .88rem; }
 
-/* 核心修复点 1：移除半透明属性，赋予固定列绝对不透明的高优先级背景线 */
 .tbl .sc1, .tbl .sc2 { 
   position: sticky !important; 
   z-index: 10; 
@@ -301,10 +295,12 @@ h1 span{background:linear-gradient(130deg,var(--acc),var(--acc2)); -webkit-backg
 }
 .tbl td { padding: 11px 13px; vertical-align: middle; }
 
-/* 核心修复点 2：同步联动悬停变色，阻挡后续滑入单元格的图层穿透 */
 .tbl tbody tr { transition: background var(--tr); }
 .tbl tbody tr:hover td { background: rgba(249,115,22,.04); }
-.tbl tbody tr:hover .sc1, .tbl tbody tr:hover .sc2 { background: var(--card-hi) !important; }
+.tbl tbody tr:hover .sc1, .tbl tbody tr:hover .sc2 { 
+  background-color: var(--sticky-bg) !important; 
+  background-image: linear-gradient(var(--card-hi), var(--card-hi)) !important; 
+}
 
 .note-sm { font-size: .74rem; color: var(--t2); margin-top: 3px; }
 .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--card-bd); }
@@ -457,11 +453,6 @@ h1 span{background:linear-gradient(130deg,var(--acc),var(--acc2)); -webkit-backg
       </div>
       <h1>香港扣账卡<span>境外提款</span>收费对比</h1>
       <p class="hero-sub">根据各银行公开资料整理，仅供参考，请以银行官网为准</p>
-      <div class="hero-stats">
-        <span class="stat-pill"><strong>14</strong> 家银行</span>
-        <span class="stat-pill"><strong>6</strong> 种ATM类型</span>
-        <span class="stat-pill"><strong>22</strong> 个户口级别</span>
-      </div>
     </div>
     <div class="theme-ctrl" id="theme-ctrl">
       <button class="th-btn" onclick="setTheme('light')" data-m="light">☀️ 浅色</button>
