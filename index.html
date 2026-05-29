@@ -272,7 +272,19 @@ h1 span{background:linear-gradient(130deg,var(--acc),var(--acc2)); -webkit-backg
    TABLE
 ════════════════ */
 .tbl-outer { overflow-x: auto; isolation: isolate; }
-.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .88rem; }
+.tbl { 
+  width: 100%; 
+  border-collapse: separate; 
+  border-spacing: 0; 
+  font-size: .88rem; 
+  table-layout: auto;
+}
+
+@media(max-width: 768px) {
+  .tbl { 
+    min-width: 900px; 
+  } 
+}
 
 .tbl .sc1, .tbl .sc2 { 
   position: sticky !important; 
@@ -746,34 +758,35 @@ function renderAtmResult() {
 // ── Panel 3: Table ────────────────────────────────────
 let tableRendered = false;
 function renderTable() {
-  if (tableRendered) return;
-  tableRendered = true;
-  const heads = ATM_TYPES.map(a => `<th>${renderAtmIcon(a, a.iconKind === 'pair' ? 'res-chip-logo-pair' : (a.iconKind === 'svg' ? 'res-chip-logo' : ''))} ${a.label}</th>`).join('');
-  const rows = [];
-  BANKS.forEach(bank => bank.tiers.forEach((tier, ti) => {
-    const bc = ti === 0
-      ? `<td rowspan="${bank.tiers.length}" class="sc1" style="font-weight:700;border-right:1px solid var(--card-bd);white-space:nowrap"><span class="tbl-bank-cell">${renderBankLogo(bank, 'tbl-bank-logo')}<span>${bank.name}</span></span></td>`
-      : '';
-    
-    const tc = `<td class="sc2" style="font-size:.82rem;color:var(--t2);border-right:1px solid var(--card-bd);white-space:nowrap">${tier.label}</td>`;
-    
-    const fc = ATM_TYPES.map(a => {
-      const f = tier.fees[a.key] || {s:'fee'};
-      return `<td><span class="bdg ${f.s}">${SI[f.s]} ${SL[f.s]}</span>${f.n?`<div class="note-sm">${f.n}</div>`:''}</td>`;
-    }).join('');
-    rows.push(`<tr>${bc}${tc}${fc}</tr>`);
-  }));
+  if (!tableRendered) {
+    tableRendered = true;
+    const heads = ATM_TYPES.map(a => `<th>${renderAtmIcon(a, a.iconKind === 'pair' ? 'res-chip-logo-pair' : (a.iconKind === 'svg' ? 'res-chip-logo' : ''))} ${a.label}</th>`).join('');
+    const rows = [];
+    BANKS.forEach(bank => bank.tiers.forEach((tier, ti) => {
+      const bc = ti === 0
+        ? `<td rowspan="${bank.tiers.length}" class="sc1" style="font-weight:700;border-right:1px solid var(--card-bd);white-space:nowrap"><span class="tbl-bank-cell">${renderBankLogo(bank, 'tbl-bank-logo')}<span>${bank.name}</span></span></td>`
+        : '';
+      
+      const tc = `<td class="sc2" style="font-size:.82rem;color:var(--t2);border-right:1px solid var(--card-bd);white-space:nowrap">${tier.label}</td>`;
+      
+      const fc = ATM_TYPES.map(a => {
+        const f = tier.fees[a.key] || {s:'fee'};
+        return `<td><span class="bdg ${f.s}">${SI[f.s]} ${SL[f.s]}</span>${f.n?`<div class="note-sm">${f.n}</div>`:''}</td>`;
+      }).join('');
+      rows.push(`<tr>${bc}${tc}${fc}</tr>`);
+    }));
 
-  document.getElementById('tbl-content').innerHTML =
-    `<table class="tbl"><thead><tr><th class="sc1">银行</th><th class="sc2">户口类别</th>${heads}</tr></thead><tbody>${rows.join('')}</tbody></table>`;
+    document.getElementById('tbl-content').innerHTML =
+      `<table class="tbl"><thead><tr><th class="sc1">银行</th><th class="sc2">户口类别</th>${heads}</tr></thead><tbody>${rows.join('')}</tbody></table>`;
+  }
   
-  requestAnimationFrame(() => {
+  setTimeout(() => {
     const col1 = document.querySelector('#tbl-content .sc1');
     if (col1) {
       const w = col1.offsetWidth;
       document.querySelectorAll('#tbl-content .sc2').forEach(el => el.style.left = w + 'px');
     }
-  });
+  }, 50);
 }
 
 initBankGrid();
