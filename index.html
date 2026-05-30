@@ -592,6 +592,9 @@ const BANK_LOGOS = {
   hsbc: 'icon/汇丰银行.svg',
   hase: 'icon/Hang_Seng_Bank.svg',
   bochk: 'icon/中国银行.svg',
+  icbc: 'icon/工商银行.svg',
+  ccb: 'icon/建设银行.svg',
+  ncb: 'icon/南洋商业银行.svg',
   scb: 'icon/渣打银行.svg',
   bea: 'icon/东亚银行.svg',
   dahsing: 'icon/大新银行.svg',
@@ -613,9 +616,42 @@ const BANKS = [
         id: 'debit',
         label: 'MasterCard 扣账卡',
         tiers: [
-          { label: '普通客户', fees: { hkBankTong:{s:'fee',n:'每次25港元'}, hkHSBCHS:{s:'free'}, macauBankTong:{s:'fee',n:'每次40港元'}, macauOther:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'}, mainland:{s:'limited',n:'仅汇丰恒生ATM免费<br>其余每次40港元'}, overseas:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'} }, note: '不含ATM Fee' },
-          { label: '卓越理财', fees: { hkBankTong:{s:'fee',n:'每次25港元'}, hkHSBCHS:{s:'free'}, macauBankTong:{s:'free'}, macauOther:{s:'free'}, mainland:{s:'free'}, overseas:{s:'free'} }, note: '不含ATM Fee' },
-          { label:'卓越理财尊尚 / 环球私人银行', fees:{ hkBankTong:{s:'free'}, hkHSBCHS:{s:'free'}, macauBankTong:{s:'free'}, macauOther:{s:'free'}, mainland:{s:'free'}, overseas:{s:'free'} }, note:'包含ATM Fee' }
+          {
+            label: '普通客户',
+            fees: {
+              hkBankTong:{s:'fee',n:'每次25港元'},
+              hkHSBCHS:{s:'free'},
+              macauBankTong:{s:'fee',n:'每次40港元'},
+              macauOther:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'},
+              mainland:{s:'limited',n:'仅汇丰恒生ATM免费<br>其余每次40港元'},
+              overseas:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'}
+            },
+            note: '不含ATM Fee'
+          },
+          {
+            label: '卓越理财',
+            fees: {
+              hkBankTong:{s:'fee',n:'每次25港元'},
+              hkHSBCHS:{s:'free'},
+              macauBankTong:{s:'free'},
+              macauOther:{s:'free'},
+              mainland:{s:'free'},
+              overseas:{s:'free'}
+            },
+            note: '不含ATM Fee'
+          },
+          {
+            label:'卓越理财尊尚 / 环球私人银行',
+            fees:{
+              hkBankTong:{s:'free'},
+              hkHSBCHS:{s:'free'},
+              macauBankTong:{s:'free'},
+              macauOther:{s:'free'},
+              mainland:{s:'free'},
+              overseas:{s:'free'}
+            },
+            note:'包含ATM Fee'
+          }
         ]
       },
       {
@@ -656,9 +692,42 @@ const BANKS = [
         id: 'debit',
         label: 'MasterCard 扣账卡',
         tiers: [
-          { label: '普通客户', fees: { hkBankTong:{s:'fee',n:'每次25港元'}, hkHSBCHS:{s:'free'}, macauBankTong:{s:'fee',n:'每次40港元'}, macauOther:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'}, mainland:{s:'limited',n:'仅汇丰恒生ATM免费<br>其余每次40港元'}, overseas:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'} }, note: '不含ATM Fee' },
-          { label: '优越理财', fees: { hkBankTong:{s:'fee',n:'每次25港元'}, hkHSBCHS:{s:'free'}, macauBankTong:{s:'free'}, macauOther:{s:'free'}, mainland:{s:'free'}, overseas:{s:'free'} }, note: '不含ATM Fee' },
-          { label:'优越私人理财 / 私人银行', fees:{ hkBankTong:{s:'free'}, hkHSBCHS:{s:'free'}, macauBankTong:{s:'free'}, macauOther:{s:'free'}, mainland:{s:'free'}, overseas:{s:'free'} }, note:'包含ATM Fee' }
+          {
+            label: '普通客户',
+            fees: {
+              hkBankTong:{s:'fee',n:'每次25港元'},
+              hkHSBCHS:{s:'free'},
+              macauBankTong:{s:'fee',n:'每次40港元'},
+              macauOther:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'},
+              mainland:{s:'limited',n:'仅汇丰恒生ATM免费<br>其余每次40港元'},
+              overseas:{s:'limited',n:'仅汇丰ATM免费<br>其余每次40港元'}
+            },
+            note: '不含ATM Fee'
+          },
+          {
+            label: '优越理财',
+            fees: {
+              hkBankTong:{s:'fee',n:'每次25港元'},
+              hkHSBCHS:{s:'free'},
+              macauBankTong:{s:'free'},
+              macauOther:{s:'free'},
+              mainland:{s:'free'},
+              overseas:{s:'free'}
+            },
+            note: '不含ATM Fee'
+          },
+          {
+            label:'优越私人理财 / 私人银行',
+            fees:{
+              hkBankTong:{s:'free'},
+              hkHSBCHS:{s:'free'},
+              macauBankTong:{s:'free'},
+              macauOther:{s:'free'},
+              mainland:{s:'free'},
+              overseas:{s:'free'}
+            },
+            note:'包含ATM Fee'
+          }
         ]
       },
       {
@@ -669,8 +738,7 @@ const BANKS = [
             label: '普通客户',
             fees: {
               hkBankTong:{s:'fee',n:'每次15港元'},
-              hkHSBCHS:{s:'free'},
-              macauBankTong:{s:'fee',n:'每次50港元'},
+              hkHSBCHS:{s:'free'}, macauBankTong:{s:'fee',n:'每次50港元'},
               macauOther:{s:'fee',n:'汇丰ATM每次20港元<br>其余每次50港元'},
               mainland:{s:'fee',n:'汇丰恒生ATM每次20港元<br>其余每次50港元'},
               overseas:{s:'fee',n:'汇丰ATM每次20港元<br>其余每次50港元'}
@@ -681,8 +749,7 @@ const BANKS = [
             label: '优越理财 / 优越私人理财 / 私人银行',
             fees: {
               hkBankTong:{s:'fee',n:'每次15港元'},
-              hkHSBCHS:{s:'free'},
-              macauBankTong:{s:'fee',n:'每次50港元'},
+              hkHSBCHS:{s:'free'}, macauBankTong:{s:'fee',n:'每次50港元'},
               macauOther:{s:'limited',n:'仅汇丰ATM免费<br>其余每次50港元'},
               mainland:{s:'limited',n:'仅汇丰恒生ATM免费<br>其余每次50港元'},
               overseas:{s:'limited',n:'仅汇丰ATM免费<br>其余每次50港元'}
@@ -705,10 +772,10 @@ const BANKS = [
             label:'所有客户',
             fees:{
               hkBankTong:{s:'free'},
-              hkHSBCHS:{s:'fee',n:'通过港币账户每次25港币<br>通过人民币账户每次25人民币'},
+              hkHSBCHS:{s:'fee',n:'通过港元账户每次25港元<br>通过人民币账户每次25人民币'},
               macauBankTong:{s:'fee',n:'每次20港元'},
               macauOther:{s:'free'},
-              mainland:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
+              mainland:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
               overseas:{s:'free'}
             }
           }
@@ -722,11 +789,80 @@ const BANKS = [
             label:'所有客户',
             fees:{
               hkBankTong:{s:'free'},
-              hkHSBCHS:{s:'fee',n:'通过港币账户每次15港币<br>通过人民币账户每次15人民币'},
+              hkHSBCHS:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
               macauBankTong:{s:'fee',n:'每次20港元'},
-              macauOther:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              mainland:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              overseas:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'}
+              macauOther:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              mainland:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'}
+            }
+          }
+        ]
+      }
+    ]
+  },
+  { 
+    id: 'icbc', 
+    name: '中国工商银行（亚洲）', 
+    cardTypes: [
+      {
+        id: 'atm',
+        label: '银联提款卡',
+        tiers: [
+          {
+            label:'所有客户',
+            fees:{
+              hkBankTong:{s:'free'},
+              hkHSBCHS:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              macauBankTong:{s:'fee',n:'每次10港元'},
+              macauOther:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              mainland:{s:'limited',n:'工商银行ATM免费<br>通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'}
+            }
+          }
+        ]
+      }
+    ]
+  },
+  { 
+    id: 'ccb', 
+    name: '中国建设银行（亚洲）', 
+    cardTypes: [
+      {
+        id: 'atm',
+        label: '银联提款卡',
+        tiers: [
+          {
+            label:'所有客户',
+            fees:{
+              hkBankTong:{s:'free'},
+              hkHSBCHS:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              macauBankTong:{s:'limited',n:'建设银行ATM免费<br>其余每次25港元'},
+              macauOther:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              mainland:{s:'limited',n:'建设银行ATM免费<br>通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'}
+            }
+          }
+        ]
+      }
+    ]
+  },
+  { 
+    id: 'ncb', 
+    name: '南洋商业银行', 
+    cardTypes: [
+      {
+        id: 'atm',
+        label: '银联提款卡',
+        tiers: [
+          {
+            label:'所有客户',
+            fees:{
+              hkBankTong:{s:'free'},
+              hkHSBCHS:{s:'fee',n:'通过港元账户每次15港元<br>通过人民币账户每次15人民币'},
+              macauBankTong:{s:'fee',n:'每次20港元'},
+              macauOther:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              mainland:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'}
             }
           }
         ]
@@ -807,7 +943,7 @@ const BANKS = [
             label:'所有客户',
             fees:{
               hkBankTong:{s:'free'},
-              hkHSBCHS:{s:'fee',n:'每次30港币'},
+              hkHSBCHS:{s:'fee',n:'每次30港元'},
               macauBankTong:{s:'ftf',n:'不明确是否收费，且有 FTF'},
               macauOther:{s:'ftf',n:'免手续费但有 FTF'},
               mainland:{s:'free'},
@@ -847,11 +983,11 @@ const BANKS = [
             label:'所有客户',
             fees:{
               hkBankTong:{s:'free'},
-              hkHSBCHS:{s:'fee',n:'每次20港币'},
-              macauBankTong:{s:'fee',n:'每次28港币'},
-              macauOther:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              mainland:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              overseas:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'}
+              hkHSBCHS:{s:'fee',n:'每次20港元'},
+              macauBankTong:{s:'fee',n:'每次28港元'},
+              macauOther:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              mainland:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'}
             }
           }
         ]
@@ -888,10 +1024,10 @@ const BANKS = [
             fees:{
               hkBankTong:{s:'free'},
               hkHSBCHS:{s:'free'},
-              macauBankTong:{s:'fee',n:'每次25港币'},
-              macauOther:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              mainland:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              overseas:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'}
+              macauBankTong:{s:'fee',n:'每次25港元'},
+              macauOther:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              mainland:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'}
             }
           }
         ]
@@ -934,10 +1070,10 @@ const BANKS = [
             fees:{
               hkBankTong:{s:'free'},
               hkHSBCHS:{s:'fee',n:'免手续费但有FTF'},
-              macauBankTong:{s:'fee',n:'每次25港币'},
-              macauOther:{s:'fee',n:'每次50港币'},
-              mainland:{s:'fee',n:'每次50港币'},
-              overseas:{s:'fee',n:'每次50港币'}
+              macauBankTong:{s:'fee',n:'每次25港元'},
+              macauOther:{s:'fee',n:'每次50港元'},
+              mainland:{s:'fee',n:'每次50港元'},
+              overseas:{s:'fee',n:'每次50港元'}
             }
           }
         ]
@@ -951,10 +1087,10 @@ const BANKS = [
             fees:{
               hkBankTong:{s:'free'},
               hkHSBCHS:{s:'fee',n:'免手续费但有FTF'},
-              macauBankTong:{s:'fee',n:'每次25港币'},
-              macauOther:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              mainland:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'},
-              overseas:{s:'fee',n:'通过港币账户每次50港币<br>通过人民币账户每次50人民币'}
+              macauBankTong:{s:'fee',n:'每次25港元'},
+              macauOther:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              mainland:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'},
+              overseas:{s:'fee',n:'通过港元账户每次50港元<br>通过人民币账户每次50人民币'}
             }
           }
         ]
